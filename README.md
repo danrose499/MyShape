@@ -1,5 +1,5 @@
 In this project, I recreate the Java shape hierarchy with the classes MyLine, MyCircle, and MyPolygon which extend a MyShape class.
-A MyColor enum is used to allow custom RGBA colors.
+A MyColor enum was written to allow custom RGBA colors.
 
 JavaFX is then used to print objects of these shapes onto a canvas in chosen sizes and colors. 
 
