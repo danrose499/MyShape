@@ -5,6 +5,7 @@ JavaFX is then used to print objects of these shapes onto a canvas in chosen siz
 
 Each MyShape class has relevant functions. 
 
+![Output](https://i.imgur.com/KzlTr7l.png)
 In the future, I will add more classes and build in more features.
 
 Daniel Rosenthal
