@@ -3,10 +3,9 @@ A MyColor enum was written to allow custom RGBA colors.
 
 JavaFX is then used to print objects of these shapes onto a canvas in chosen sizes and colors. 
 
-Each MyShape class has relevant functions. 
+Each MyShape class has relevant functions. In the future, I plan add more shape classes and build more features.
 
 ![Output](https://i.imgur.com/KzlTr7l.png)
-In the future, I will add more classes and build in more features.
 
 Daniel Rosenthal
 10/6/20
