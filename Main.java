@@ -231,6 +231,7 @@ class MyLine extends MyShape {
         MyPoint p = new MyPoint(Math.min(p1.getX(), p2.getX()), Math.min(p1.getY(),p2.getY()));
         return new MyRectangle(p, Math.abs(p1.getX() - p2.getX()), Math.abs(p1.getY() - p2.getY()));
     }
+
     public MyPoint[][] getMyShapeArea(){
         MyPoint[][] pArea = this.getBoundingRectangle().getMyShapeArea();
 
@@ -239,14 +240,12 @@ class MyLine extends MyShape {
         int xMax = xMin + R.getWidth();
         int yMin = R.p.getY();
         int yMax = yMin + R.getHeight();
-        double refAngle = this.get_xAngle();
-        MyPoint pMax = new MyPoint(xMax, yMax);
 
         int i = 0;
         for(int x = xMin; x <= xMax; x++){
             int j = 0;
             for(int y = yMin; y <= yMax; y++) {
-                MyLine l = new MyLine(new MyPoint(x,y), pMax);
+                MyLine l = new MyLine(new MyPoint(x,y), this.p2);
                 if (l.get_xAngle() != this.get_xAngle()) {
                     pArea[i][j] = null;
                 }
@@ -303,7 +302,7 @@ class MyPolygon extends MyShape {
         MyPoint q = new MyPoint(p.getX() - (int) r, p.getY() - (int) r);
         return new MyRectangle(q, (int) r*2, (int) r*2);
     }
-    public MyPoint[][] getMyShapeArea(){ //Needs better implementation, does not return all points inside!
+    public MyPoint[][] getMyShapeArea(){
         MyCircle c = new MyCircle(p, (double) getApothem());
         return c.getMyShapeArea();
     }
@@ -379,12 +378,12 @@ class  MyCircle extends MyOval {
     double r;
     //Constructors:
     MyCircle(MyPoint p, double r, MyColor color) {
-        super(new MyPoint(0,0), r, r, color);
+        super(new MyPoint((int) (p.getX()-r), (int) (p.getY()-r)), r, r, color);
         this.p = p;
         this.r = r;
     }
     MyCircle(MyPoint p, double r) {
-        super(new MyPoint(0,0), r, r);
+        super(new MyPoint((int) (p.getX()-r), (int) (p.getY()-r)), r, r);
         this.p = p;
         this.r = r;
     }
