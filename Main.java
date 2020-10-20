@@ -120,7 +120,10 @@ class MyPoint {
     MyColor color = MyColor.WHITE; //Default Color
     //Constructors
     MyPoint(){ this(0, 0); }
-    MyPoint(MyPoint P){ setPoint(P); }
+    MyPoint(MyPoint P){
+        setPoint(P);
+        this.color = P.getColor();
+    }
     MyPoint(int x, int y){ setPoint(x, y); }
     MyPoint(int x, int y, MyColor color){
         setPoint(x, y);
@@ -134,6 +137,7 @@ class MyPoint {
     //Getters
     public int getX() { return x; }
     public int getY() { return y; }
+    public MyColor getColor() { return color; }
     //Other Methods
     public void translate(int ShiftX, int ShiftY) { setPoint(x + ShiftX, y + ShiftY); }
     public double distance(MyPoint P) {
@@ -291,19 +295,19 @@ class MyPolygon extends MyShape {
         double centralAngle = 0;
         double inc = (2*Math.PI)/n;
         for(int i = 0; i < n; i++){
-            xVertices[i] = (int) r*Math.sin(centralAngle)+p.getX();
-            yVertices[i] = (int) -r*Math.cos(centralAngle)+p.getY();
+            xVertices[i] = (int) (r*Math.sin(centralAngle)+p.getX());
+            yVertices[i] = (int) (-r*Math.cos(centralAngle)+p.getY());
             centralAngle+=inc;
         }
         GC.setFill(super.getColor());
         GC.fillPolygon(xVertices, yVertices, n);
     }
     public MyRectangle getBoundingRectangle(){
-        MyPoint q = new MyPoint(p.getX() - (int) r, p.getY() - (int) r);
-        return new MyRectangle(q, (int) r*2, (int) r*2);
+        MyPoint q = new MyPoint(p.getX() - r, p.getY() - r);
+        return new MyRectangle(q, r*2,  r*2);
     }
-    public MyPoint[][] getMyShapeArea(){
-        MyCircle c = new MyCircle(p, (double) getApothem());
+    public MyPoint[][] getMyShapeArea(){ //Currently only an estimate, calls getMyShape area on inner circle
+        MyCircle c = new MyCircle(p, getApothem());
         return c.getMyShapeArea();
     }
 }
@@ -484,7 +488,7 @@ public class Main extends Application  {
     @Override
     public void start(Stage primaryStage) /*throws Exception*/ {
         try {
-            primaryStage.setTitle("CSc 221, Project 2");
+            primaryStage.setTitle("MyShape Hierarchy");
             Pane P = new Pane();
             Canvas CV = addCanvas(1000, 500);
             P.getChildren().add(CV);
