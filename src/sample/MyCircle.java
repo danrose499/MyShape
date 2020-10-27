@@ -29,7 +29,7 @@ class  MyCircle extends MyOval {
     @Override
     public void draw(GraphicsContext GC) {
         GC.setFill(super.getColor());
-        GC.fillOval(p.getX(), p.getY(), r, r);
+        GC.fillOval(super.p.getX(), super.p.getY(), 2*r, 2*r);
     }
     //Abstract Methods
     public MyRectangle getBoundingRectangle(){
