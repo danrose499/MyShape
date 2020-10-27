@@ -15,7 +15,7 @@ public class Main extends Application  {
     @Override
     public void start(Stage primaryStage) /*throws Exception*/ {
         try {
-            primaryStage.setTitle("My PieChart");
+            primaryStage.setTitle("MyShape Hierarchy");
             Pane P = new Pane();
             Canvas CV = addCanvas(1000, 500);
             P.getChildren().add(CV);
@@ -28,7 +28,7 @@ public class Main extends Application  {
     private Canvas addCanvas(int cWidth, int cHeight) {
         Canvas CV = new Canvas(cWidth, cHeight);
         GraphicsContext GC = CV.getGraphicsContext2D();
-
+        //Prints ovals and bounding rectangles as example of MyShape hierarchy in use
         MyRectangle r1 = new MyRectangle(new MyPoint(100, 50), 800, 400, MyColor.TEAL);
         r1.draw(GC);
         MyOval o1 = new MyOval(new MyPoint(100, 50), 800, 400, MyColor.VIOLET);
