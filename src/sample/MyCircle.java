@@ -31,6 +31,10 @@ class  MyCircle extends MyOval {
         GC.setFill(super.getColor());
         GC.fillOval(super.p.getX(), super.p.getY(), 2*r, 2*r);
     }
+    public void stroke(GraphicsContext GC) {
+        GC.setFill(MyColor.BLACK.getColor());
+        GC.strokeOval(super.p.getX(), super.p.getY(), 2*r, 2*r);
+    }
     //Abstract Methods
     public MyRectangle getBoundingRectangle(){
         MyPoint q = new MyPoint(p.getX() - (int) r,p.getY() - (int) r);
