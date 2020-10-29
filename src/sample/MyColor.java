@@ -5,10 +5,12 @@ import javafx.scene.paint.Color;
 enum MyColor{
     //Constant Colors
     BLACK(0, 0, 0, 255),
+    CLEAR_BLACK(0,0,0, 50),
     BLUE(0, 0, 255, 255),
     CYAN(0, 255,255, 255),
     DARK_RED(139, 0, 0, 255),
     GREY(128, 128, 128, 255),
+    CLEAR_GREY(128, 128, 128, 50),
     GREEN(0, 128, 0, 255),
     LIME(0, 255, 0, 255),
     MAGENTA(255, 0, 255, 255),
@@ -21,7 +23,8 @@ enum MyColor{
     TEAL(0, 128, 128, 255),
     VIOLET(148, 0, 211, 255),
     WHITE(255, 255, 255, 255),
-    YELLOW(255, 255, 0, 255);
+    YELLOW(255, 255, 0, 255),
+    ORANGE(255,165,0,255);
 
     private int r, g, b, a; // red, green, blue, opacity components (0-255)
     private int argb;
