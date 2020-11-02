@@ -13,14 +13,12 @@ class MyPolygon extends MyShape {
         this.color = color;
         this.n = n;
         this.r = r;
-        this.p = p;
     }
     MyPolygon(MyPoint p, int n, int r) {
         super(new MyPoint(0, 0));
         this.p = p;
         this.n = n;
         this.r = r;
-        this.p =p;
     }
     //Methods:
     public double getSide() { return 2*r*Math.sin(Math.PI/n); }
@@ -40,8 +38,8 @@ class MyPolygon extends MyShape {
         double centralAngle = 0;
         double inc = (2*Math.PI)/n;
         for(int i = 0; i < n; i++){
-            xVertices[i] = (int) (r*Math.sin(centralAngle)+p.getX());
-            yVertices[i] = (int) (-r*Math.cos(centralAngle)+p.getY());
+            xVertices[i] = (int) (p.getX()+r*Math.sin(centralAngle));
+            yVertices[i] = (int) (p.getY()-r*Math.cos(centralAngle));
             centralAngle+=inc;
         }
         GC.setFill(super.getColor());
