@@ -27,10 +27,9 @@ class MyRectangle extends MyShape{
     public int getWidth(){ return width; }
     public int getHeight() { return height; }
     //Other Methods
+    public double getPerimeter() { return 2*(width+height); }
     @Override
     public double getArea() { return width*height; }
-    @Override
-    public double getPerimeter() { return 2*(width+height); }
     @Override
     public void draw(GraphicsContext GC) {
         GC.setFill(color.getColor());
