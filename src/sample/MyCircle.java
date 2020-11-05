@@ -17,10 +17,9 @@ class  MyCircle extends MyOval {
         this.r = r;
     }
     //Methods:
+    public double getPerimeter(){ return Math.PI*(r*2); } //Circumference = 2(PI)r
     @Override
     public double getArea() { return Math.PI * Math.pow(r, 2); } // A = (PI)r^2
-    @Override
-    public double getPerimeter(){ return Math.PI*(r*2); } //Circumference = 2(PI)r
     @Override
     public String toString(){
         return "Circle with Radius: " + r + ", Area: " + getArea() + ", and Perimeter: "
@@ -52,7 +51,9 @@ class  MyCircle extends MyOval {
                     pArea[i][(int) r*2 - j] = null;
                     pArea[(int) r*2 - i][(int) r*2 - j] = null;
                 }
+                j++;
             }
+            i++;
         }
         return pArea;
     }
