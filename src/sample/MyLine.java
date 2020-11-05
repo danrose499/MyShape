@@ -39,10 +39,9 @@ class MyLine extends MyShape {
         GC.setLineWidth(1);
         GC.strokeLine(p1.getX(), p1.getY(), p2.getX(), p2.getY());
     }
+    public double getPerimeter(){ return getLength(); }
     @Override
     public double getArea(){ return 0; }
-    @Override
-    public double getPerimeter(){ return getLength(); }
     //Interface Methods
     public MyRectangle getBoundingRectangle() {
         MyPoint p = new MyPoint(Math.min(p1.getX(), p2.getX()), Math.min(p1.getY(),p2.getY()));
