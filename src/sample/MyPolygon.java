@@ -23,6 +23,7 @@ class MyPolygon extends MyShape {
     //Methods:
     public double getSide() { return 2*r*Math.sin(Math.PI/n); }
     public double getPerimeter() { return getSide()*n; }
+    @Override
     public double getArea() { return ((n*Math.pow(getSide(),2))/(4*Math.tan(Math.PI/n))); }
     public double getAngle() { return 180.0*(n-2)/n; } //180(n-2) = sum of interior angles
     public double getApothem() { return r/(2*Math.tan(Math.PI/n)); }
