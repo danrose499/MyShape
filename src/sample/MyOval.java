@@ -29,13 +29,12 @@ class MyOval extends MyShape{
         p.setY(newP.getY() - (int) b);
     }
     //Methods
+    public double getPerimeter() { return Math.PI*(3*(a+b)-Math.sqrt((3*a+b)*(a+3*b))); } //Ramanujan's approximation
     public MyPoint getCenter() { //P is top left corner, we need to shift down and across
         return new MyPoint(p.getX() + (int) a, p.getY() + (int) b);
     }
     @Override
     public double getArea() { return Math.PI*a*b; }
-    @Override
-    public double getPerimeter() { return Math.PI*(3*(a+b)-Math.sqrt((3*a+b)*(a+3*b))); } //Ramanujan's approximation
     @Override
     public String toString() {
         return "Oval with width: " + w + ", height: " + h + ", perimeter: "
@@ -63,7 +62,9 @@ class MyOval extends MyShape{
                     pArea[i][(int) h - j] = null;
                     pArea[(int) w - i][(int) h - j] = null;
                 }
+                j++;
             }
+            i++;
         }
         return pArea;
     }
