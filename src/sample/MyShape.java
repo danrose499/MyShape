@@ -30,7 +30,6 @@ abstract class MyShape implements MyShapeInterface{
     public void setColor(MyColor color) { this.color = color; }
     //Abstract Methods;
     public abstract double getArea();
-    public abstract double getPerimeter();
     public abstract void draw(GraphicsContext GC);
     //Other Methods:
     public String toString() { return "This is a MyShape object"; }
